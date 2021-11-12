@@ -24,7 +24,7 @@ public class DemoCustomView01Adapter extends RecyclerTabLayout.Adapter<DemoCusto
 
     public DemoCustomView01Adapter(ViewPager viewPager) {
         super(viewPager);
-        mAdapater = (DemoColorPagerAdapter) mViewPager.getAdapter();
+        mAdapater = (DemoColorPagerAdapter) viewPager.getAdapter();
     }
 
     @Override

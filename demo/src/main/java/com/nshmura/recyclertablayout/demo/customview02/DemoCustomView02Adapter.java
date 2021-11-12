@@ -27,7 +27,7 @@ public class DemoCustomView02Adapter
 
     public DemoCustomView02Adapter(ViewPager viewPager) {
         super(viewPager);
-        mAdapater = (DemoImagePagerAdapter) mViewPager.getAdapter();
+        mAdapater = (DemoImagePagerAdapter) viewPager.getAdapter();
     }
 
     @Override

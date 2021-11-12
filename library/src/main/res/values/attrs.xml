@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="rtl_RecyclerTabLayout">
+    <declare-styleable name="RecyclerTabLayout">
         <attr name="rtl_tabIndicatorColor" format="color"/>
         <attr name="rtl_tabIndicatorHeight" format="dimension"/>
 
