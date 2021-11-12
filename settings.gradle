@@ -1,1 +1,1 @@
-include ':demo_viewpager', ':library_viewpager', ':library_viewpager2'
+include ':demo_viewpager', ':demo_viewpager2', ':library_viewpager', ':library_viewpager2'

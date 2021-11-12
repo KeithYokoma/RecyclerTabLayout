@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.nshmura.recyclertablayout.demo"
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion COMPILE_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
+    }
+
+    def signingConfigsFile = file("signingConfigs.release.gradle")
+    if (signingConfigsFile.exists()) {
+        apply from: signingConfigsFile.absolutePath, to: android
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            zipAlignEnabled true
+        }
+        release {
+            debuggable false
+            zipAlignEnabled true
+            if (signingConfigsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(':library_viewpager2')
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
+}

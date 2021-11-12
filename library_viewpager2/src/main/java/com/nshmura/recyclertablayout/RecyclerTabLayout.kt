@@ -380,10 +380,10 @@ class RecyclerTabLayout @JvmOverloads constructor(
   }
 
   interface HasPageTitle {
-    fun getPageTitle(position: Int): String = ""
+    fun getPageTitle(position: Int): String? = null
   }
 
-  abstract class Adapter<T : ViewHolder?>(val viewPager: ViewPager2) : RecyclerView.Adapter<T>(), HasPageTitle {
+  abstract class Adapter<T : ViewHolder?>(val viewPager: ViewPager2) : RecyclerView.Adapter<T>() {
     var currentIndicatorPosition = 0
   }
 
@@ -433,7 +433,7 @@ class RecyclerTabLayout @JvmOverloads constructor(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-      val title = (viewPager.adapter as? Adapter)?.getPageTitle(position) ?: return
+      val title = (viewPager.adapter as? HasPageTitle)?.getPageTitle(position) ?: return
       holder.title.text = title
       holder.title.isSelected = currentIndicatorPosition == position
     }
