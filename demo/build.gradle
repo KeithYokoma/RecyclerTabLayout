@@ -34,7 +34,6 @@ android {
 
 dependencies {
     implementation project(':library')
-    //implementation "com.ochim:recyclertablayout-androidx:$VERSION_NAME"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
